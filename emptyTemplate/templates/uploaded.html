@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Uploaded</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0; /* Background color */
+        }
+        .container {
+            text-align: center; /* Center align the content */
+            background-color: #fff; /* Content background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for container */
+        }
+        .graph-img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        .section {
+            margin-bottom: 20px;
+            background-color: #fff; /* Section background color */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Box shadow for sections */
+        }
+        .section h2 {
+            background-color: #007BFF; /* Heading background color */
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff; /* Heading text color */
+        }
+        .section p, .section div {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f9fa; /* Content background color */
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1 style="color: #007BFF;">Upload Complete</h1>
+            <p>File {{ filename }} uploaded successfully.</p>
+        </div>
+
+        <div class="section">
+            <h2>First 3 rows of the data:</h2>
+            <div class="text-center">{{ data|safe }}</div>
+        </div>
+
+        <div class="section">
+            <h2 style="background-color: #FFC107;">Important data values:</h2>
+            <div class="text-center">{{ data1|safe }}</div>
+        </div>
+
+        <div class="section">
+            <h2 style="background-color: #28A745;">Important data values:</h2>
+            <div class="text-center">{{ data2|safe }}</div>
+        </div>
+
+        <div class="section">
+            <h2 style="background-color: #DC3545;">Important data values:</h2>
+            <div class="text-center">{{ data3|safe }}</div>
+        </div>
+
+        <div class="section">
+            <h2 style="background-color: #6610F2;">Important data values:</h2>
+            <div class="text-center">{{ data4|safe }}</div>
+        </div>
+
+        <!-- Graphs -->
+<div class="section">
+    <h2 style="background-color: #007BFF; color: #fff;">Graph:</h2>
+    <img class="graph-img mx-auto" src="{{ url_for('static', filename=graph_filename) }}" alt="Graph">
+</div>
+
+<div class="section">
+    <h2 style="background-color: #FFC107; color: #fff;">Graph 1:</h2>
+    <img class="graph-img mx-auto" src="{{ url_for('static', filename=graph_filename1) }}" alt="Graph">
+</div>
+
+<div class="section">
+    <h2 style="background-color: #28A745; color: #fff;">Graph 2:</h2>
+    <img class="graph-img mx-auto" src="{{ url_for('static', filename=graph_filename2) }}" alt="Graph">
+</div>
+
+<div class="section">
+    <h2 style="background-color: #DC3545; color: #fff;">Graph 3:</h2>
+    <img class="graph-img mx-auto" src="{{ url_for('static', filename=graph_filename3) }}" alt="Graph">
+</div>
+
+<div class="section">
+    <h2 style="background-color: #6610F2; color: #fff;">Graph 4:</h2>
+    <img class="graph-img mx-auto" src="{{ url_for('static', filename=graph_filename4) }}" alt="Graph">
+</div>
+
+<div class="section">
+    <h2 style="background-color: #FF5733; color: #fff;">Graph 5:</h2>
+    <img class="graph-img mx-auto" src="{{ url_for('static', filename=graph_filename5) }}" alt="Graph">
+</div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

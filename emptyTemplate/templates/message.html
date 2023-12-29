@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0; /* Background color */
+        }
+        .container {
+            text-align: center; /* Center align the content */
+            background-color: #fff; /* Content background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for container */
+        }
+        .error-message {
+            color: #DC3545; /* Error message text color */
+        }
+        #counter {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF; /* Countdown text color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ message }}</h1>
+        <div class="error-message">You will be redirected in <span id="counter">3</span> seconds.</div>
+        <script>
+            var counter = 3;
+            var interval = setInterval(function() {
+                counter--;
+                document.getElementById('counter').innerHTML = counter;
+                if (counter === 0) {
+                    clearInterval(interval);
+                    window.location.href = '{{ redirect_url }}';
+                }
+            }, 1000);
+        </script>
+    </div>
+</body>
+</html>
